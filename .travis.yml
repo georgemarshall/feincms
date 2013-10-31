@@ -3,10 +3,10 @@ python:
   - "2.6"
   - "2.7"
 env:
-  - DJANGO_VERSION=1.5.5
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+  - DJANGO_VERSION="Django>=1.5,<1.6"
+  - DJANGO_VERSION="https://www.djangoproject.com/download/1.6c1/tarball/#md5=7f82bfcde72ec63d7ccdff8d1369369d"
+
 install:
-  - pip install -q Django==$DJANGO_VERSION django-mptt Pillow feedparser --use-mirrors
+  - pip install -q $DJANGO_VERSION django-mptt Pillow feedparser --use-mirrors
   - python setup.py -q install
-# command to run tests, e.g. python setup.py test
 script: "cd tests && ./manage.py test testapp"
